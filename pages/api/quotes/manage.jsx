@@ -88,7 +88,7 @@ export default function handler(req, res) {
             return res.status(200).json({ message: 'Saved Successfully' });
         }
 
-        // --- الحذف النهائي (السابقة) ---
+        // --- الحذف النهائي (السابقة ) ---
         if (req.method === 'DELETE') {
             const { quoteNumber } = req.query;
             const filePath = path.join(quotesDir, `${quoteNumber}.txt`);
