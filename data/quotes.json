@@ -1,0 +1,86 @@
+{
+  "quotes": [
+    {
+      "quoteNumber": 1001,
+      "customer": "",
+      "items": [
+        {
+          "id": 1766584329937,
+          "desc": "",
+          "size": "",
+          "qty": 1,
+          "meter_qty": 1,
+          "price": 0
+        }
+      ],
+      "notes": "",
+      "subtotal": 0,
+      "vat": 0,
+      "total": 0,
+      "date": "24/12/2025",
+      "createdBy": "المدير العام",
+      "history": [
+        {
+          "action": "إنشاء",
+          "user": "المدير العام",
+          "time": "24/12/2025, 16:52:59"
+        }
+      ]
+    },
+    {
+      "quoteNumber": 1002,
+      "customer": "يثفريقفقققققققققققققققق",
+      "items": [
+        {
+          "id": 1766584388831,
+          "desc": "",
+          "size": "",
+          "qty": 1,
+          "meter_qty": 1,
+          "price": 0
+        }
+      ],
+      "notes": "",
+      "subtotal": 0,
+      "vat": 0,
+      "total": 0,
+      "date": "24/12/2025",
+      "createdBy": "المدير العام",
+      "history": [
+        {
+          "action": "إنشاء",
+          "user": "المدير العام",
+          "time": "24/12/2025, 16:53:20"
+        }
+      ]
+    },
+    {
+      "quoteNumber": 1003,
+      "customer": "عهععععع",
+      "items": [
+        {
+          "id": 1766584562979,
+          "desc": "",
+          "size": "",
+          "qty": 1,
+          "meter_qty": 1,
+          "price": 0
+        }
+      ],
+      "notes": "",
+      "subtotal": 0,
+      "vat": 0,
+      "total": 0,
+      "date": "24/12/2025",
+      "createdBy": "المدير العام",
+      "history": [
+        {
+          "action": "إنشاء",
+          "user": "المدير العام",
+          "time": "24/12/2025, 16:56:16"
+        }
+      ]
+    }
+  ],
+  "nextId": 1004
+}

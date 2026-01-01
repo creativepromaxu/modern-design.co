@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "title": "Home | Modern Design for Advertising",
+    "description": "We provide the best printing services, shop fronts, laser cutting, and exhibition organization with the highest quality."
+  },
+  "header": {
+    "home": "Home",
+    "services": "Services",
+    "works": "Our Works",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "lang": "العربية",
+    "menu": "Menu"
+  },
+  "hero": {
+    "rotatingWords": "Creativity, Mastery, Craftsmanship, Distinction, Innovation, Quality, Flexibility, Speed, Accuracy, Experience, Details, Identity, Idea, Value, Touch, Vision, Professionalism, Style, Experience, Inspiration",
+    "title": "Turning Your Ideas Into Reality",
+    "subtitle": "Your strategic partner in printing and advertising solutions with the latest technologies.",
+    "cta": "Explore Services"
+  },
+  "stats": {
+    "years": "Years Experience",
+    "clients": "Happy Clients",
+    "projects": "Completed Projects"
+  },
+  "works": {
+    "title": "Our Latest Works",
+    "view_project": "View Project",
+    "no_images": "No images available currently."
+  },
+  "about": {
+    "title": "About Us",
+    "description": "We are a leading company..."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "desc": "We are here to help you"
+  },
+  "services_section": {
+    "title": "Our Services",
+    "subtitle": "We offer a comprehensive range of printing and design services with the highest quality standards",
+    "read_more": "See More"
+  },
+  "services_list": {
+    "uv_flat": { "title": "UV Flatbed", "desc": "High quality printing on various flat surfaces" },
+    "uv_roll": { "title": "UV Roll", "desc": "Continuous roll printing in various sizes and vivid colors" },
+    "paper": { "title": "Digital Paperwork Printing", "desc": "Fast, professional paper printing for brochures and booklets" },
+    "solvent_roll": { "title": "Solvent Roll", "desc": "Solvent printing for outdoor stickers and banners" },
+    "diecut": { "title": "Die Cut", "desc": "Die-cut service for special shapes and custom cuts" },
+    "offset": { "title": "Offset", "desc": "Offset printing for large and medium business quantities" },
+    "dtf": { "title": "DTF Printing", "desc": "Direct DTF printing on fabrics with high resistance" },
+    "sublimation": { "title": "Sublimation", "desc": "Sublimation printing on fabrics, mugs, and gifts" },
+    "laser_cut": { "title": "Laser Cutting", "desc": "High precision shaping and cutting of acrylic and forex" },
+    "stamps": { "title": "Stamps", "desc": "Manufacturing and printing stamps in various shapes and sizes" },
+    "raised_letters": { "title": "3D Letters", "desc": "Design and installation of raised letters for shops and signs" },
+    "exhibitions": { "title": "Exhibitions", "desc": "Full service for organizing exhibitions and conferences with top quality" }
+  },
+"founder": {
+    "badge": "Founder's Message",
+    "title": "Vision Beyond Printing",
+    "message": "Since our inception, our passion has been transforming abstract ideas into tangible reality. In our world, we settle for nothing less than perfection, always striving to provide innovative solutions that match our partners' ambitions. Your trust is our primary drive for continuous creativity.",
+    "name": "Adib Othman",
+    "role": "Founder & General Manager"
+  },
+
+"partners": {
+    "title": "Our Partners"
+  },
+
+
+
+
+
+
+
+"testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "We are proud of the trust of over 200 clients we serve daily",
+    "reviews": {
+      "1": { "name": "Saud Al-Qahtani", "role": "Marketing Manager", "text": "I've dealt with many printers, but your offset color accuracy is next level. The brochures turned out amazing." },
+      "2": { "name": "Noura Al-Shammari", "role": "Event Planner", "text": "You saved me in a very tight deadline! The exhibition booth and banners were ready in less than 24 hours with exceptional quality." },
+      "3": { "name": "Eng. Ahmed Al-Ghamdi", "role": "CEO - Benaa", "text": "The 3D signage gave a luxurious look to our new HQ. Installation was very clean and detailed. A true success partner." },
+      "4": { "name": "Laila Al-Salem", "role": "Graphic Designer", "text": "As a designer, color matching is crucial. Your UV printing tech is excellent and colors are incredibly vivid." },
+      "5": { "name": "Khalid Al-Otaibi", "role": "Cafe Owner", "text": "The coffee cups and stickers quality is high and doesn't peel with heat. Bless your business." },
+      "6": { "name": "Fahad Al-Dossari", "role": "Procurement Manager", "text": "Very competitive prices for the quality. We ordered large quantities of stamps and invoices, everything arrived perfectly." },
+      "7": { "name": "Dr. Sarah Al-Omari", "role": "Elite Clinics", "text": "The internal signage in the clinic looks very elegant and modern. Laser cutting is precise with zero errors." },
+      "8": { "name": "Omar Ba-Hussain", "role": "Ad Agency", "text": "Your customer service is a lesson to be learned. Patience with edits until we reached the goal. Very happy." },
+      "9": { "name": "Mona Al-Juaid", "role": "E-commerce Store", "text": "DTF printing on t-shirts is very stable even after washing. Print texture is excellent. Will definitely order again." },
+      "10": { "name": "Yasser Al-Harbi", "role": "Real Estate Co.", "text": "The brochures for our new project were an honorable front for us before investors. Thanks for the professionalism." }
+    }
+  },
+
+
+
+"about": {
+    "badge": "About Us",
+    "title": "Crafting Your Identity",
+    "description": "Modern Design Company was established in late 2017 with a small team and a clear vision. Our vision has helped us overcome numerous challenges, and most importantly, we have been able to achieve many successes by firmly believing that the key to our success lies in our commitment to establishing ourselves as a specialized group that delivers creative projects and high-quality work. We have full confidence that our entire team shares this vision and works towards implementing it in all our daily activities.",
+    "why_badge": "Why Us?",
+    "why_title": "The Secret lies in Details",
+    "why_description": "Because we believe quality is not a coincidence. We combine machine precision with artist passion to deliver a product that steals the show."
+  },
+
+
+  "footer": {
+    "bio": "We provide creative solutions in design and advertising with the highest standards of quality and professionalism.",
+    "quick_links": "Quick Links",
+    "contact_title": "Contact Us",
+    "address": "Al-Khalidiyah, Riyadh, Saudi Arabia",
+    "rights": "All Rights Reserved © Modern Design",
+    "developed_by": "Developed by",
+    "developer_name": "Elyas Hamoud Al-Mikhlafi"
+  }
+}

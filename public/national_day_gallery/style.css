@@ -1,0 +1,301 @@
+:root {
+    --bg-color: #002D2D;
+    --text-color: #f0f0f0;
+    --accent-color: #ffd700;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+#tsparticles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* --- حاوية التحكم بالصوت --- */
+.audio-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    padding: 5px;
+    transition: background-color 0.3s;
+}
+
+.mute-button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+    flex-shrink: 0; /* لمنع الزر من الانكماش */
+}
+
+.mute-button:hover {
+    transform: scale(1.1);
+}
+
+/* --- شريط التحكم بالصوت --- */
+.volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0; /* يبدأ مخفياً */
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    outline: none;
+    opacity: 0; /* يبدأ شفافاً */
+    visibility: hidden;
+    transition: width 0.4s ease, opacity 0.4s ease, visibility 0.4s;
+    margin-right: 10px; /* مسافة بينه وبين الزر عند ظهوره */
+}
+
+/* إظهار الشريط عند مرور الماوس فوق الحاوية */
+.audio-controls:hover .volume-slider {
+    width: 120px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* تصميم مقبض الشريط لمتصفحات Webkit (Chrome, Safari) */
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+/* تصميم مقبض الشريط لمتصفح Firefox */
+.volume-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--accent-color);
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+
+/* --- باقي التصميم (مع تعديلات الهيدر) --- */
+
+.main-header, .content-wrapper { position: relative; z-index: 1; }
+.main-header { padding-top: 20px; }
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.header-logo { height: 80px; width: auto; max-width: 200px; }
+.logo-link { flex-shrink: 0; }
+.header-text { flex-grow: 1; padding: 0 20px; }
+.header-text h1 { font-size: 2.5rem; margin: 10px 0; }
+.header-text p { font-size: 1.1rem; color: #ccc; margin: 0; }
+.header-text h1::after { content: ''; display: block; width: 80px; height: 3px; background-color: var(--accent-color); margin: 15px auto 0; }
+
+.content-wrapper { width: 66.66%; max-width: 1400px; margin: 0 auto; padding: 0; }
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.gallery-item-link { text-decoration: none; display: block; border-radius: 10px; overflow: hidden; }
+
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+    height: 100%;
+}
+
+.gallery-item::before, .gallery-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    transition: width 0.25s ease-out, height 0.25s ease-out;
+}
+.gallery-item::before { top: -3px; left: -3px; border-top: 3px solid transparent; border-right: 3px solid transparent; transition-delay: 0.5s, 0.25s; }
+.gallery-item::after { bottom: -3px; right: -3px; border-bottom: 3px solid transparent; border-left: 3px solid transparent; transition-delay: 0s, 0.75s; }
+.gallery-item-link:hover .gallery-item::before, 
+.gallery-item-link:hover .gallery-item::after { width: calc(100% + 6px); height: calc(100% + 6px); border-color: var(--accent-color); }
+.gallery-item-link:hover .gallery-item::before { transition-delay: 0s, 0.25s; }
+.gallery-item-link:hover .gallery-item::after { transition-delay: 0.5s, 0.75s; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+.gallery-item-link:nth-child(2) .gallery-item { animation-delay: 0.1s; }
+.gallery-item-link:nth-child(3) .gallery-item { animation-delay: 0.2s; }
+.gallery-item-link:nth-child(4) .gallery-item { animation-delay: 0.3s; }
+
+.gallery-item-link:hover .gallery-item { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.gallery-item-link:hover .gallery-item img { transform: scale(1.1); }
+
+.item-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent); color: white; padding: 40px 20px 20px; opacity: 0; transform: translateY(100%); transition: opacity 0.4s ease, transform 0.4s ease; }
+.gallery-item-link:hover .item-overlay { opacity: 1; transform: translateY(0); }
+.item-overlay h3 { margin: 0; font-size: 1.2rem; }
+
+@media (max-width: 1200px) { .content-wrapper { width: 80%; } }
+@media (max-width: 992px) { .content-wrapper { width: 90%; } .gallery-container { gap: 20px; } }
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; }
+    .header-text { order: 1; padding-bottom: 20px; }
+    .header-text h1 { font-size: 2rem; }
+    .header-content .logo-link { order: 2; }
+    .header-content::after { content: ''; display: block; width: 100%; order: 1; }
+    .header-logo { height: 60px; }
+    .content-wrapper { width: 95%; }
+    .gallery-container { grid-template-columns: 1fr; }
+}```
+
+### الخطوة 3: ملف `script.js` (مُحدّث بالكامل)
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- إعداد خلفية الجسيمات ---
+    tsParticles.load("tsparticles", {
+        fullScreen: { enable: false },
+        particles: {
+            number: { value: 60, density: { enable: true, value_area: 800 }},
+            color: { value: ["#ffd700", "#00A99D", "#8CC63F", "#ffffff"] },
+            shape: { type: "circle" },
+            opacity: { value: 0.8, random: true },
+            size: { value: 5, random: true },
+            move: {
+                enable: true,
+                speed: 2,
+                direction: "bottom",
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+            }
+        },
+        interactivity: {
+            detectsOn: "canvas",
+            events: {
+                onHover: { enable: true, mode: "repulse" },
+                resize: true
+            }
+        },
+        detectRetina: true,
+    });
+
+    // --- إعداد التحكم بالصوت ---
+    const audio = document.getElementById('background-audio');
+    const muteBtn = document.getElementById('mute-btn');
+    const volumeSlider = document.getElementById('volume-slider');
+    
+    // ضبط مستوى الصوت الافتراضي
+    audio.volume = 0.2;
+    volumeSlider.value = 0.2;
+
+    const playlist = [ 'sound/1.m4a', 'sound/2.m4a', 'sound/3.m4a' ];
+    let hasInteracted = false;
+    let lastVolume = audio.volume; // لحفظ آخر مستوى صوت قبل الكتم
+
+    // وظيفة لتشغيل مقطع عشوائي
+    function playRandomAudio() {
+        const randomIndex = Math.floor(Math.random() * playlist.length);
+        audio.src = playlist[randomIndex];
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log("Autoplay was prevented. Waiting for user interaction.");
+                setupInteractionListener();
+            });
+        }
+    }
+
+    // استدعاء الوظيفة عند انتهاء المقطع
+    audio.addEventListener('ended', playRandomAudio);
+
+    // التحكم بمستوى الصوت عبر الشريط
+    volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value;
+        if (audio.volume > 0) {
+            audio.muted = false;
+        }
+        updateMuteButtonIcon();
+    });
+
+    // كتم الصوت عند الضغط على الزر
+    muteBtn.addEventListener('click', () => {
+        if (audio.muted) {
+            audio.muted = false;
+            // إذا كان الصوت 0، ارفعه قليلاً عند إلغاء الكتم
+            volumeSlider.value = lastVolume > 0 ? lastVolume : 0.1; 
+        } else {
+            audio.muted = true;
+            lastVolume = volumeSlider.value; // حفظ مستوى الصوت الحالي
+            volumeSlider.value = 0;
+        }
+        audio.volume = volumeSlider.value; // تحديث الصوت الفعلي
+        updateMuteButtonIcon();
+    });
+
+    // وظيفة لتحديث شكل أيقونة الصوت
+    function updateMuteButtonIcon() {
+        if (audio.muted || audio.volume === 0) {
+            muteBtn.textContent = '🔇';
+        } else {
+            muteBtn.textContent = '🔊';
+        }
+    }
+
+    // وظيفة لإعداد مستمع النقرة (الخطة البديلة)
+    function setupInteractionListener() {
+        const startAudioOnInteraction = () => {
+            if (!hasInteracted) {
+                audio.play();
+                hasInteracted = true;
+                document.body.removeEventListener('click', startAudioOnInteraction);
+                document.body.removeEventListener('touchend', startAudioOnInteraction);
+            }
+        };
+        document.body.addEventListener('click', startAudioOnInteraction);
+        document.body.addEventListener('touchend', startAudioOnInteraction);
+    }
+    
+    // ابدأ العملية
+    playRandomAudio();
+});

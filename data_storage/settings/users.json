@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "المدير العام",
+    "username": "admin",
+    "password": "0500973722",
+    "role": "admin",
+    "status": "active"
+  },
+  {
+    "name": "الياس المخلافي",
+    "username": "ElyasDabwany",
+    "password": "0509460017",
+    "role": "designer",
+    "id": 1766587019187,
+    "status": "active"
+  },
+  {
+    "name": "اسلام مجدي",
+    "username": "EslamMajdy",
+    "password": "542825472⁩0",
+    "role": "designer",
+    "id": 1766645209277,
+    "status": "active"
+  }
+]
