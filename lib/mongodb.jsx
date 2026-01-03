@@ -1,25 +1,22 @@
-// lib/mongodb.js
 import { MongoClient } from 'mongodb';
 
-const uri = process.env.MONGODB_URI;
+// 🔴 الحل المؤقت: وضعنا الرابط مباشرة هنا
+const uri = 'mongodb+srv://creativepromaxu_db_user:db_0509460017@cluster0.oz32otq.mongodb.net/modern_design?retryWrites=true&w=majority';
 const options = {};
 
 let client;
 let clientPromise;
 
-if (!process.env.MONGODB_URI) {
-    throw new Error('Please add your Mongo URI to Environment Variables');
-}
+// حذفنا الشرط الذي كان يسبب الخطأ لأن الرابط موجود الآن
+// if (!process.env.MONGODB_URI) { ... } 
 
 if (process.env.NODE_ENV === 'development') {
-    // في وضع التطوير، نستخدم متغير عالمي للحفاظ على الاتصال عند عمل Refresh
     if (!global._mongoClientPromise) {
         client = new MongoClient(uri, options);
         global._mongoClientPromise = client.connect();
     }
     clientPromise = global._mongoClientPromise;
 } else {
-    // في وضع الإنتاج (Vercel)، ننشئ اتصالاً جديداً لكل طلب
     client = new MongoClient(uri, options);
     clientPromise = client.connect();
 }
