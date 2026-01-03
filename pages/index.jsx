@@ -1,21 +1,21 @@
 // /pages/index.jsx
 import Head from 'next/head';
-import fs from 'fs'; // أعدنا الاستيراد لأنه ضروري لـ getStaticProps
+import fs from 'fs';
 import path from 'path';
 import Header from '../components/layout/Header';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
-// مكونات الصفحة الرئيسية - تم تعديل المسارات لتطابق أسماء ملفاتك بدقة
+// مكونات الصفحة الرئيسية - تم توحيدها لتطابق قائمة ملفاتك بدقة
 import Home_Hero from '../components/home/Home_Hero';
 import Home_EventBanner from '../components/home/Home_EventBanner';
 import Home_Services from '../components/home/Home_Services';
 import Home_Stats from '../components/home/Home_Stats';
-import Founders_Message from '../components/home/Founders_Message'; // حذفنا .jsx
+import Founders_Message from '../components/home/Founders_Message';
 import Home_Partners from '../components/home/Home_Partners';
 import Home_WorksPreview from '../components/home/Home_WorksPreview';
 import Home_Testimonials from '../components/home/Home_Testimonials';
-import Home_About from '../components/home/Home About'; // عدلنا الشرطة لمسافة لتطابق ملفك
+import Home_About from '../components/home/Home_About'; // تم تعديله ليتطابق مع التسمية الجديدة
 import Home_Contact from '../components/home/Home_Contact';
 import ModernDesignSection from '../components/home/ModernDesignSection';
 
@@ -26,7 +26,7 @@ export default function HomePage({ projectsData }) {
         <>
             <Head>
                 <title>{t('meta.title', 'الرئيسية | شركة التصميم الحديث للدعاية والإعلان')}</title>
-                <meta name="description" content={t('meta.description', 'نقدم أفضل خدمات الطباعة بأعلى جودة.')} />
+                <meta name="description" content={t('meta.description', 'نقدم أفضل خدمات الطباعة.')} />
                 <link rel="icon" href="/logoicon.svg" />
             </Head>
 
