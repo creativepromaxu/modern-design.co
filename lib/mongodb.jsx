@@ -1,14 +1,11 @@
 import { MongoClient } from 'mongodb';
 
-// 🔴 الحل المؤقت: وضعنا الرابط مباشرة هنا
-const uri = 'mongodb+srv://creativepromaxu_db_user:db_0509460017@cluster0.oz32otq.mongodb.net/modern_design?retryWrites=true&w=majority';
+// لاحظ كلمة المرور الجديدة في الرابط
+const uri = 'mongodb+srv://creativepromaxu_db_user:M0dernDesign2026@cluster0.oz32otq.mongodb.net/modern_design?retryWrites=true&w=majority';
 const options = {};
 
 let client;
 let clientPromise;
-
-// حذفنا الشرط الذي كان يسبب الخطأ لأن الرابط موجود الآن
-// if (!process.env.MONGODB_URI) { ... } 
 
 if (process.env.NODE_ENV === 'development') {
     if (!global._mongoClientPromise) {
