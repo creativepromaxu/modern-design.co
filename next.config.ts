@@ -1,10 +1,13 @@
+import type { NextConfig } from 'next';
+
+// استدعاء إعدادات اللغات من ملف الإعدادات الخاص بها
+// @ts-ignore
 const { i18n } = require('./next-i18next.config');
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
-  i18n, 
+  i18n,
   
-  // دمج إعادة التوجيه داخل نفس الكائن
   async redirects() {
     return [
       {
@@ -12,8 +15,8 @@ const nextConfig = {
         destination: '/QuotationModernDesign/login',
         permanent: true,
       },
-    ]
+    ];
   },
-}
+};
 
-module.exports = nextConfig;
+export default nextConfig;
