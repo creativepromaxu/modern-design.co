@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Header from '../components/layout/Header';
 
 // استيراد مكتبات النظام (للصور) ومكتبة الترجمة
-import fs from 'fs';
 import path from 'path';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
