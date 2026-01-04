@@ -6,7 +6,10 @@ export default function CreateQuote() {
     const { edit } = router.query;
 
     const [currentUser, setCurrentUser] = useState(null);
-    const [items, setItems] = useState([{ id: Date.now(), desc: '', size: '', qty: 1, meter_qty: 1, price: 0 }]);
+
+    // تم تفريغ القيم تماماً هنا (نصوص فارغة) لتبدأ الخانات بيضاء
+    const [items, setItems] = useState([{ id: Date.now(), desc: '', size: '', qty: '', meter_qty: '', price: '' }]);
+
     const [quoteNum, setQuoteNum] = useState('...');
     const [customer, setCustomer] = useState('');
     const [notes, setNotes] = useState('');
@@ -45,7 +48,17 @@ export default function CreateQuote() {
         }
     }, [edit, router]);
 
-    const subtotal = items.reduce((acc, item) => acc + (item.qty * (item.meter_qty || 1) * item.price), 0);
+    // الحسابات تعامل الخانة الفارغة كـ 0 لضمان صحة الإجمالي
+    const subtotal = items.reduce((acc, item) => {
+        const q = parseFloat(item.qty) || 0;
+        const mq = parseFloat(item.meter_qty) || 0;
+        const p = parseFloat(item.price) || 0;
+
+        // ملاحظة: إذا كنت تريد أن يكون (الكمية م) اختيارية بحيث لو فرغت لا تصفر السطر،
+        // يمكن تغيير (parseFloat(item.meter_qty) || 0) إلى (parseFloat(item.meter_qty) || 1)
+        return acc + (q * mq * p);
+    }, 0);
+
     const vat = subtotal * 0.15;
     const total = subtotal + vat;
 
@@ -101,7 +114,6 @@ export default function CreateQuote() {
         <div className="page-wrapper" style={{ backgroundColor: '#1a1a1a', padding: '20px 0', minHeight: '100vh', direction: 'rtl', overflowX: 'hidden' }}>
             <style>{`
                 * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-
                 .viewport-fix { width: 100%; display: flex; justify-content: center; align-items: flex-start; }
                 .scaler { transform-origin: top center; }
 
@@ -122,7 +134,6 @@ export default function CreateQuote() {
                     .scaler { transform: none !important; width: 100% !important; }
                     .no-print { display: none !important; }
                     .main-table { width: 100% !important; box-shadow: none !important; table-layout: auto !important; }
-                    /* تقسيم تلقائي للمحتوى بين الصفحات */
                     thead { display: table-header-group; }
                     tfoot { display: table-footer-group; }
                     tr { page-break-inside: avoid; }
@@ -194,17 +205,19 @@ export default function CreateQuote() {
                                                     <td style={{ textAlign: 'center' }}>{index + 1}</td>
                                                     <td><textarea rows="1" value={item.desc} onInput={autoGrow} onChange={(e) => { const n = [...items]; n[index].desc = e.target.value; setItems(n); }} style={{ textAlign: 'right' }} /></td>
                                                     <td><input value={item.size} onChange={(e) => { const n = [...items]; n[index].size = e.target.value; setItems(n); }} /></td>
-                                                    <td><input type="number" value={item.qty} onChange={(e) => { const n = [...items]; n[index].qty = Number(e.target.value); setItems(n); }} /></td>
-                                                    <td><input type="number" value={item.meter_qty} onChange={(e) => { const n = [...items]; n[index].meter_qty = Number(e.target.value); setItems(n); }} /></td>
-                                                    <td><input type="number" value={item.price} onChange={(e) => { const n = [...items]; n[index].price = Number(e.target.value); setItems(n); }} /></td>
-                                                    <td style={{ fontWeight: '900', color: brandColor, textAlign: 'center' }}>{formatNum(item.qty * (item.meter_qty || 1) * item.price)}</td>
+                                                    <td><input value={item.qty} onChange={(e) => { const n = [...items]; n[index].qty = e.target.value; setItems(n); }} /></td>
+                                                    <td><input value={item.meter_qty} onChange={(e) => { const n = [...items]; n[index].meter_qty = e.target.value; setItems(n); }} /></td>
+                                                    <td><input value={item.price} onChange={(e) => { const n = [...items]; n[index].price = e.target.value; setItems(n); }} /></td>
+                                                    <td style={{ fontWeight: '900', color: brandColor, textAlign: 'center' }}>
+                                                        {formatNum((parseFloat(item.qty) || 0) * (parseFloat(item.meter_qty) || 0) * (parseFloat(item.price) || 0))}
+                                                    </td>
                                                 </tr>
                                             ))}
                                         </tbody>
                                     </table>
 
                                     <button className="no-print" style={{ marginTop: '15px', backgroundColor: accentColor, color: '#fff', border: 'none', borderRadius: '50%', width: '30px', height: '30px', cursor: 'pointer' }}
-                                        onClick={() => setItems([...items, { id: Date.now(), desc: '', size: '', qty: 1, meter_qty: 1, price: 0 }])}>+</button>
+                                        onClick={() => setItems([...items, { id: Date.now(), desc: '', size: '', qty: '', meter_qty: '', price: '' }])}>+</button>
 
                                     <div style={{ marginTop: '40px', display: 'flex', justifyContent: 'space-between', pageBreakInside: 'avoid' }}>
                                         <div style={{ width: '55%' }}>
