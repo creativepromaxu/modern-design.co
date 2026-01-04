@@ -102,7 +102,7 @@
   },
 
 
-  "footer": {
+"footer": {
     "bio": "We provide creative solutions in design and advertising with the highest standards of quality and professionalism.",
     "quick_links": "Quick Links",
     "contact_title": "Contact Us",
@@ -110,5 +110,7 @@
     "rights": "All Rights Reserved © Modern Design",
     "developed_by": "Developed by",
     "developer_name": "Elyas Hamoud Al-Mikhlafi"
-  }
+  },
+  "whatsapp_cta": "Order Now 👋",
+  "whatsapp_greeting": "Hello, I would like to inquire about your services"
 }

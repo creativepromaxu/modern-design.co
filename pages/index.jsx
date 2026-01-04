@@ -6,7 +6,7 @@ import Header from '../components/layout/Header';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
-// مكونات الصفحة الرئيسية - تم توحيدها لتطابق قائمة ملفاتك بدقة
+// استيراد المكونات
 import Home_Hero from '../components/home/Home_Hero';
 import Home_EventBanner from '../components/home/Home_EventBanner';
 import Home_Services from '../components/home/Home_Services';
@@ -15,9 +15,12 @@ import Founders_Message from '../components/home/Founders_Message';
 import Home_Partners from '../components/home/Home_Partners';
 import Home_WorksPreview from '../components/home/Home_WorksPreview';
 import Home_Testimonials from '../components/home/Home_Testimonials';
-import Home_About from '../components/home/Home_About'; // تم تعديله ليتطابق مع التسمية الجديدة
+import Home_About from '../components/home/Home_About';
 import Home_Contact from '../components/home/Home_Contact';
 import ModernDesignSection from '../components/home/ModernDesignSection';
+
+// 1. استيراد زر الواتساب الجديد
+import WhatsAppFloat from '../components/home/WhatsAppFloat';
 
 export default function HomePage({ projectsData }) {
     const { t } = useTranslation('common');
@@ -39,17 +42,21 @@ export default function HomePage({ projectsData }) {
                 <Home_Stats />
                 <Founders_Message />
                 <Home_Partners />
-                <ModernDesignSection />
                 <Home_WorksPreview projects={projectsData} />
+                <ModernDesignSection />
                 <Home_Testimonials />
                 <Home_About />
                 <Home_Contact />
             </main>
+
+            {/* 2. إضافة زر الواتساب هنا ليطفو فوق الموقع */}
+            <WhatsAppFloat />
         </>
     );
 }
 
 export async function getStaticProps({ locale }) {
+    // ... (نفس الكود السابق تماماً)
     const projectsDirectory = path.join(process.cwd(), 'public/projects');
     let projectsData = [];
 
