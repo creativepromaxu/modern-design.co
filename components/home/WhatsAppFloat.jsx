@@ -8,7 +8,7 @@ const WhatsAppFloat = () => {
     const [showTooltip, setShowTooltip] = useState(false);
 
     // رقم الواتساب (ضعه بصيغة دولية)
-    const phoneNumber = "966500000000";
+    const phoneNumber = "+966557480817";
     const message = t('whatsapp_greeting', "مرحباً، أريد الاستفسار عن خدماتكم");
 
     useEffect(() => {
