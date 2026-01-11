@@ -108,17 +108,17 @@ export default function HomePage({ projectsData }) {
                 <Home_Hero />
                 <Home_EventBanner />
                 <Home_Services />
+                <Home_About />
                 <Home_Stats />
 
                 {/* 2. المنطقة السفلية (تحميل ذكي عند الوصول) */}
                 {/* بفضل SectionPlaceholder، المتصفح يحجز مكان القسم قبل تحميله */}
                 <Founders_Message />
-                <Home_Partners />
                 <Home_WorksPreview projects={projectsData} />
+                <Home_Partners />
                 <ModernDesignSection />
                 <ServicesSection />
                 <Home_Testimonials />
-                <Home_About />
                 <Home_Contact />
             </main>
 
